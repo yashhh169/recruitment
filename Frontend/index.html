@@ -141,6 +141,48 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+        @keyframes orbit-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 74, 198, 0.35); }
+            50% { transform: scale(1.02); box-shadow: 0 0 30px 10px rgba(37, 99, 235, 0.22); }
+        }
+        .orbit-pulse-node {
+            animation: orbit-pulse 3.8s ease-in-out infinite;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spin-slow {
+            animation: spin-slow 24s linear infinite;
+        }
+        .flow-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .flow-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px -8px rgba(0, 74, 198, 0.16);
+            border-color: rgba(37, 99, 235, 0.45);
+        }
+        .flow-card.active-flow {
+            border-color: #004ac6;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 18px 36px -6px rgba(0, 74, 198, 0.22);
+        }
+        .nav-link-active {
+            color: #004ac6 !important;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #004ac6;
+            border-radius: 9999px;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
@@ -158,7 +200,7 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
 <div class="hidden md:flex items-center gap-8">
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:scale-105 transition-transform duration-200" href="#">Find Jobs</a>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:scale-105 transition-transform duration-200" href="#">Companies</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:scale-105 transition-transform duration-200" href="#">How it Works</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:scale-105 transition-transform duration-200" href="#how-it-works" id="nav-how-it-works">How it Works</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
 <button class="font-label-md text-label-md text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors">Login</button>
@@ -248,43 +290,357 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
 </div>
 </div>
 </section>
-<!-- How It Works (Timeline) -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="text-center mb-16 fade-up">
-<h2 class="font-headline-md text-headline-md text-on-background mb-4">Your Journey to Success</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A streamlined, transparent process designed to get you hired faster.</p>
-</div>
-<div class="relative max-w-4xl mx-auto fade-up">
-<!-- Desktop Horizontal Track -->
-<div class="hidden md:block absolute top-6 left-0 w-full h-1 bg-surface-container-high rounded-full"></div>
-<div class="hidden md:block absolute top-6 left-0 w-1/3 h-1 bg-primary rounded-full transition-all duration-1000"></div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Step 1 -->
-<div class="relative z-10 flex md:flex-col items-start md:items-center gap-6 md:gap-4 md:text-center group">
-<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-headline-sm shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">1</div>
-<div>
-<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">Create Profile</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Register and build your comprehensive professional profile.</p>
-</div>
-</div>
-<!-- Step 2 -->
-<div class="relative z-10 flex md:flex-col items-start md:items-center gap-6 md:gap-4 md:text-center group">
-<div class="w-12 h-12 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-sm group-hover:bg-primary group-hover:text-white transition-colors">2</div>
-<div>
-<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">Screening</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Our experts review and match you with ideal roles.</p>
-</div>
-</div>
-<!-- Step 3 -->
-<div class="relative z-10 flex md:flex-col items-start md:items-center gap-6 md:gap-4 md:text-center group">
-<div class="w-12 h-12 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-headline-sm group-hover:bg-primary group-hover:text-white transition-colors">3</div>
-<div>
-<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">Get Hired</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Interview with partners and land your dream job.</p>
-</div>
-</div>
-</div>
-</div>
+<!-- How HireOrbit Works Section -->
+<section id="how-it-works" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative scroll-mt-24">
+    <!-- Subtle ambient background decorative glow -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-primary/5 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 fade-up">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-md text-label-sm font-semibold tracking-wider uppercase mb-4 shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">sync_alt</span>
+            <span>HOW HIREORBIT WORKS</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background tracking-tight mb-4">
+            From Application to <span class="bg-gradient-to-r from-primary via-blue-600 to-indigo-600 bg-clip-text text-transparent">Opportunity</span>
+        </h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            From your first application to the right opportunity, HireOrbit connects talented professionals with trusted hiring partners through a simple, human-led process.
+        </p>
+    </div>
+
+    <!-- Perspective / Journey Switcher Tabs -->
+    <div class="flex justify-center mb-12 fade-up">
+        <div class="inline-flex p-1.5 rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-inner flex-wrap justify-center gap-1" role="tablist" aria-label="Journey View Options">
+            <button id="tab-all" role="tab" aria-selected="true" aria-controls="journey-view" class="how-tab px-5 py-2.5 rounded-xl font-label-md text-sm font-semibold transition-all duration-300 bg-white text-primary shadow-sm hover:scale-[1.02]" onclick="switchJourneyTab('all')">
+                <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">hub</span>
+                    <span>Complete Ecosystem</span>
+                </span>
+            </button>
+            <button id="tab-candidate" role="tab" aria-selected="false" aria-controls="journey-view" class="how-tab px-5 py-2.5 rounded-xl font-label-md text-sm font-semibold text-on-surface-variant hover:text-on-background transition-all duration-300 hover:scale-[1.02]" onclick="switchJourneyTab('candidate')">
+                <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">person</span>
+                    <span>Candidate Pathway</span>
+                </span>
+            </button>
+            <button id="tab-company" role="tab" aria-selected="false" aria-controls="journey-view" class="how-tab px-5 py-2.5 rounded-xl font-label-md text-sm font-semibold text-on-surface-variant hover:text-on-background transition-all duration-300 hover:scale-[1.02]" onclick="switchJourneyTab('company')">
+                <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">domain</span>
+                    <span>Company Pathway</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Interactive Convergence Visual Diagram -->
+    <div id="journey-view" class="fade-up relative mb-16">
+        
+        <!-- Desktop / Tablet Dual-Lane Convergence Map -->
+        <div class="hidden lg:grid grid-cols-12 gap-6 items-start relative">
+            
+            <!-- LEFT LANE: Candidate Flow (Cols 1-5) -->
+            <div id="candidate-lane" class="col-span-5 space-y-4 transition-all duration-500">
+                <div class="flex items-center gap-3 mb-2 pb-2 border-b border-primary/20">
+                    <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
+                        <span class="material-symbols-outlined text-[20px]">person</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-base font-bold text-on-background">Candidate Journey</h3>
+                        <p class="text-xs text-on-surface-variant">For job seekers & professionals</p>
+                    </div>
+                </div>
+
+                <!-- Step C1 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('c1')" onclick="highlightStep('c1')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">01</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>Create Profile & Resume</span>
+                                <span class="material-symbols-outlined text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">badge</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Provide skills, work experience, education, preferred role, location, and upload your CV/Resume.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step C2 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('c2')" onclick="highlightStep('c2')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">02</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>Apply for Relevant Jobs</span>
+                                <span class="material-symbols-outlined text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">send</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Explore verified opportunities matching your background and submit targeted applications in one click.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step C3 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('c3')" onclick="highlightStep('c3')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">03</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>HireOrbit Screening</span>
+                                <span class="material-symbols-outlined text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">record_voice_over</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Our recruitment specialists review your credentials and conduct an initial screening interview.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step C4 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('c4')" onclick="highlightStep('c4')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">04</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>Profile Shortlisted</span>
+                                <span class="material-symbols-outlined text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">verified</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Qualified talent is shortlisted and prepared for introduction to hiring partner requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CENTER LANE: HireOrbit Intelligent Matching Engine (Cols 6-7) -->
+            <div id="matching-lane" class="col-span-2 flex flex-col items-center justify-center pt-8 space-y-6">
+                <!-- Dual Convergence Visual Arrows -->
+                <div class="flex items-center justify-between w-full text-primary/40 px-2">
+                    <span class="material-symbols-outlined text-2xl animate-pulse">south_east</span>
+                    <span class="material-symbols-outlined text-2xl animate-pulse">south_west</span>
+                </div>
+
+                <!-- Central Orbital Pulsing Node -->
+                <div class="orbit-pulse-node relative w-full p-5 rounded-3xl bg-gradient-to-b from-primary via-blue-700 to-indigo-800 text-white shadow-xl shadow-primary/30 text-center flex flex-col items-center overflow-hidden border border-white/20">
+                    <!-- Spinning decorative background orbit -->
+                    <div class="absolute -inset-4 border border-white/20 rounded-full spin-slow pointer-events-none opacity-40"></div>
+                    
+                    <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-3 shadow-inner">
+                        <span class="material-symbols-outlined text-2xl text-white">all_inclusive</span>
+                    </div>
+                    <div class="font-display text-sm font-black tracking-tight leading-tight mb-1">
+                        HireOrbit
+                    </div>
+                    <div class="text-[11px] font-semibold text-blue-200 uppercase tracking-wider mb-2">
+                        Matching Hub
+                    </div>
+                    <p class="text-[11px] text-blue-100/90 leading-tight">
+                        Human-Led & AI-Powered Precision Alignment
+                    </p>
+                </div>
+
+                <!-- Downward Arrow to Company Interview & Placement -->
+                <div class="flex flex-col items-center gap-1 text-primary">
+                    <div class="w-0.5 h-6 bg-gradient-to-b from-primary to-indigo-600 rounded-full"></div>
+                    <span class="material-symbols-outlined text-2xl animate-bounce">arrow_downward</span>
+                </div>
+            </div>
+
+            <!-- RIGHT LANE: Company Flow (Cols 8-12) -->
+            <div id="company-lane" class="col-span-5 space-y-4 transition-all duration-500">
+                <div class="flex items-center gap-3 mb-2 pb-2 border-b border-indigo-500/20">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-bold">
+                        <span class="material-symbols-outlined text-[20px]">domain</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-base font-bold text-on-background">Company Journey</h3>
+                        <p class="text-xs text-on-surface-variant">For hiring partners & employers</p>
+                    </div>
+                </div>
+
+                <!-- Step E1 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e1')" onclick="highlightStep('e1')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">01</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>Partner & Share Specs</span>
+                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">handshake</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Companies connect with HireOrbit and outline required roles, skills, experience, and timeline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step E2 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e2')" onclick="highlightStep('e2')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">02</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>Candidate Pool Sourcing</span>
+                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">manage_search</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">HireOrbit filters and targets relevant candidates from our pre-vetted professional talent pool.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step E3 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e3')" onclick="highlightStep('e3')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">03</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>Rigorous Skill Vetting</span>
+                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">psychology</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Our domain evaluators conduct thorough technical and behavioral screenings against role requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step E4 -->
+                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e4')" onclick="highlightStep('e4')">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">04</div>
+                        <div>
+                            <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
+                                <span>Candidate Assignment</span>
+                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">assignment_ind</span>
+                            </h4>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">HireOrbit presents vetted, high-match candidate dossiers directly to the company hiring team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Converged Shared Final Milestones (Company Interview & Placement) -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <!-- Final Step 05 -->
+            <div class="flow-card p-5 rounded-2xl bg-white border-2 border-primary/30 soft-shadow relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none"></div>
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-display font-bold text-base shadow-md shadow-primary/30 shrink-0">05</div>
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-primary mb-1">Collaborative Phase</div>
+                        <h4 class="font-headline-sm text-base font-bold text-on-background mb-1.5 flex items-center gap-2">
+                            <span>Company Interview</span>
+                            <span class="material-symbols-outlined text-primary text-sm">groups</span>
+                        </h4>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">The hiring partner conducts targeted final-round interviews directly with the shortlisted candidates.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Step 06 -->
+            <div class="flow-card p-5 rounded-2xl bg-gradient-to-br from-white to-surface-container-low border-2 border-indigo-500/30 soft-shadow relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-bl-full pointer-events-none"></div>
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-indigo-600 text-white flex items-center justify-center font-display font-bold text-base shadow-md shadow-indigo-500/30 shrink-0">06</div>
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-indigo-600 mb-1">Successful Outcome</div>
+                        <h4 class="font-headline-sm text-base font-bold text-on-background mb-1.5 flex items-center gap-2">
+                            <span>Hiring & Placement</span>
+                            <span class="material-symbols-outlined text-indigo-600 text-sm">celebration</span>
+                        </h4>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">Candidate accepts the offer and seamlessly transitions into their new role with ongoing partner support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile-Optimized Sequential Timeline (Visible only on < lg screens) -->
+        <div class="block lg:hidden space-y-6 max-w-xl mx-auto mt-6">
+            <div id="mobile-candidate-steps" class="space-y-4">
+                <div class="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-2 px-1">
+                    <span class="material-symbols-outlined text-sm">person</span> Candidate Steps
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
+                    <div class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
+                    <div>
+                        <h5 class="font-bold text-sm text-on-background">Create Profile & Resume</h5>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Submit your verified skills, experience, and CV.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
+                    <div class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
+                    <div>
+                        <h5 class="font-bold text-sm text-on-background">Apply for Opportunities</h5>
+                        <p class="text-xs text-on-surface-variant mt-0.5">One-click applications to relevant verified job roles.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
+                    <div class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
+                    <div>
+                        <h5 class="font-bold text-sm text-on-background">HireOrbit Screening</h5>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Initial interview and evaluation by our specialists.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
+                    <div class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">4</div>
+                    <div>
+                        <h5 class="font-bold text-sm text-on-background">Shortlisted for Matching</h5>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Validated profile ready for partner company assignment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Central Hub Badge -->
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-primary to-indigo-700 text-white text-center shadow-lg my-4">
+                <div class="flex items-center justify-center gap-2 font-display font-bold text-sm">
+                    <span class="material-symbols-outlined text-lg">hub</span>
+                    <span>HireOrbit Intelligent Matching Engine</span>
+                </div>
+                <p class="text-xs text-blue-100 mt-1">Connecting pre-screened talent with exact hiring specifications</p>
+            </div>
+
+            <div id="mobile-company-steps" class="space-y-4">
+                <div class="text-xs font-bold uppercase tracking-wider text-indigo-600 flex items-center gap-2 px-1">
+                    <span class="material-symbols-outlined text-sm">domain</span> Company Steps
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
+                    <div class="w-7 h-7 rounded-lg bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
+                    <div>
+                        <h5 class="font-bold text-sm text-on-background">Partner & Share Criteria</h5>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Define role requirements, budget, and desired skills.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
+                    <div class="w-7 h-7 rounded-lg bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
+                    <div>
+                        <h5 class="font-bold text-sm text-on-background">Candidate Pool Matching</h5>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Automated and recruiter-curated candidate searches.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
+                    <div class="w-7 h-7 rounded-lg bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
+                    <div>
+                        <h5 class="font-bold text-sm text-on-background">Candidate Assignment</h5>
+                        <p class="text-xs text-on-surface-variant mt-0.5">Receive interview-ready shortlisted candidates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Call to Action Box -->
+    <div class="max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-primary/10 via-surface-container-low to-indigo-500/10 border border-primary/20 p-8 sm:p-12 text-center soft-shadow fade-up relative overflow-hidden">
+        <div class="relative z-10">
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-on-background mb-3">
+                Ready to take the next step?
+            </h3>
+            <p class="font-body-md text-on-surface-variant max-w-xl mx-auto mb-8">
+                Join thousands of ambitious professionals and top-tier companies finding their perfect match with HireOrbit.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="w-full sm:w-auto font-label-md text-label-md bg-primary text-white px-8 py-3.5 rounded-xl hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Register Now</span>
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </button>
+                <button class="w-full sm:w-auto font-label-md text-label-md border-2 border-primary text-primary px-8 py-3.5 rounded-xl hover:bg-primary/5 transition-all duration-300">
+                    <span>Browse Jobs</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </section>
 </main>
 <!-- Footer -->
@@ -347,5 +703,86 @@ Hire<span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-
                 nav.classList.replace('py-2', 'py-4');
             }
         });
+
+        // Interactive Journey Tab Switcher
+        function switchJourneyTab(tabKey) {
+            const candidateLane = document.getElementById('candidate-lane');
+            const companyLane = document.getElementById('company-lane');
+            const matchingLane = document.getElementById('matching-lane');
+            const mobileCand = document.getElementById('mobile-candidate-steps');
+            const mobileComp = document.getElementById('mobile-company-steps');
+
+            const tabAll = document.getElementById('tab-all');
+            const tabCand = document.getElementById('tab-candidate');
+            const tabComp = document.getElementById('tab-company');
+
+            // Reset tab styles
+            [tabAll, tabCand, tabComp].forEach(btn => {
+                btn.className = 'how-tab px-5 py-2.5 rounded-xl font-label-md text-sm font-semibold text-on-surface-variant hover:text-on-background transition-all duration-300 hover:scale-[1.02]';
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            const activeBtn = tabKey === 'candidate' ? tabCand : (tabKey === 'company' ? tabComp : tabAll);
+            activeBtn.className = 'how-tab px-5 py-2.5 rounded-xl font-label-md text-sm font-semibold transition-all duration-300 bg-white text-primary shadow-sm hover:scale-[1.02]';
+            activeBtn.setAttribute('aria-selected', 'true');
+
+            if (tabKey === 'candidate') {
+                if (candidateLane) candidateLane.style.opacity = '1';
+                if (companyLane) companyLane.style.opacity = '0.35';
+                if (mobileCand) mobileCand.style.display = 'block';
+                if (mobileComp) mobileComp.style.display = 'none';
+            } else if (tabKey === 'company') {
+                if (candidateLane) candidateLane.style.opacity = '0.35';
+                if (companyLane) companyLane.style.opacity = '1';
+                if (mobileCand) mobileCand.style.display = 'none';
+                if (mobileComp) mobileComp.style.display = 'block';
+            } else {
+                if (candidateLane) candidateLane.style.opacity = '1';
+                if (companyLane) companyLane.style.opacity = '1';
+                if (mobileCand) mobileCand.style.display = 'block';
+                if (mobileComp) mobileComp.style.display = 'block';
+            }
+        }
+
+        // Highlight step interactively
+        function highlightStep(stepId) {
+            document.querySelectorAll('.flow-card').forEach(card => {
+                card.classList.remove('active-flow');
+            });
+            event?.currentTarget?.classList.add('active-flow');
+        }
+
+        // Smooth scroll for Navbar "How it Works" link with navbar height offset
+        document.getElementById('nav-how-it-works')?.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.getElementById('how-it-works');
+            if (target) {
+                const navHeight = document.getElementById('navbar')?.offsetHeight || 70;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navHeight - 16;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        // Scrollspy for "How it Works" navbar item
+        const howItWorksSection = document.getElementById('how-it-works');
+        const howItWorksNavLink = document.getElementById('nav-how-it-works');
+
+        if (howItWorksSection && howItWorksNavLink) {
+            const spyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        howItWorksNavLink.classList.add('nav-link-active');
+                    } else {
+                        howItWorksNavLink.classList.remove('nav-link-active');
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            spyObserver.observe(howItWorksSection);
+        }
     </script>
 </body></html>
