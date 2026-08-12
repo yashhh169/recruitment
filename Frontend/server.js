@@ -20,9 +20,12 @@ const MIME_TYPES = {
 
 const server = http.createServer((req, res) => {
   let reqUrl = req.url.split('?')[0];
-  if (reqUrl === '/') reqUrl = '/index.html';
 
-  const filePath = path.join(PUBLIC_DIR, reqUrl);
+  if (reqUrl === '/') {
+    reqUrl = '/index.html';
+  }
+
+  let filePath = path.join(PUBLIC_DIR, reqUrl);
 
   if (!filePath.startsWith(PUBLIC_DIR)) {
     res.writeHead(403, { 'Content-Type': 'text/plain' });
@@ -31,7 +34,10 @@ const server = http.createServer((req, res) => {
   }
 
   fs.stat(filePath, (err, stats) => {
-    if (err || !stats.isFile()) {
+    // SPA Fallback: If route is not a physical file (e.g. /login, /register, /dashboard), serve index.html
+    if ((err || !stats.isFile()) && !path.extname(reqUrl)) {
+      filePath = path.join(PUBLIC_DIR, 'index.html');
+    } else if (err || !stats.isFile()) {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('404 Not Found');
       return;

@@ -3,7 +3,7 @@
 <html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HireOrbit — Elite Talent & Recruitment Platform</title>
+<title>Gozonixa — Elite Talent & Recruitment Platform</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -194,7 +194,7 @@
 <span class="material-symbols-outlined text-[24px]">all_inclusive</span>
 </div>
 <span class="font-['Outfit',sans-serif] text-2xl font-black tracking-tight text-on-background">
-Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">Orbit</span>
+Gozon<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">ixa</span>
 </span>
 </a>
 <div class="hidden md:flex items-center gap-8">
@@ -203,14 +203,18 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:scale-105 transition-transform duration-200" href="#how-it-works" id="nav-how-it-works">How it Works</a>
 </div>
 <div class="hidden md:flex items-center gap-4">
-<button class="font-label-md text-label-md text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors">Login</button>
-<button class="font-label-md text-label-md bg-primary text-white px-6 py-2 rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Register</button>
+<a href="#/login" class="font-label-md text-label-md text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors inline-block font-semibold">Login</a>
+<a href="#/register" class="font-label-md text-label-md bg-primary text-white px-6 py-2 rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 inline-block font-semibold">Register</a>
 </div>
 <button class="md:hidden text-primary">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </nav>
+
+<!-- Dynamic Auth/App View Container -->
+<div id="app-view" style="display: none;"></div>
+
 <main>
 <!-- Hero Section -->
 <section class="relative pt-32 pb-24 md:pt-48 md:pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
@@ -290,24 +294,22 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
 </div>
 </div>
 </section>
-<!-- How HireOrbit Works Section -->
-<section id="how-it-works" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative scroll-mt-24">
-    <!-- Subtle ambient background decorative glow -->
-    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-primary/5 via-indigo-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
-
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-12 fade-up">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-md text-label-sm font-semibold tracking-wider uppercase mb-4 shadow-sm">
-            <span class="material-symbols-outlined text-[16px]">sync_alt</span>
-            <span>HOW HIREORBIT WORKS</span>
+<!-- How Gozonixa Works Section -->
+<section id="how-it-works" class="py-20 md:py-32 bg-surface-container-low/50 relative overflow-hidden">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-md text-xs font-bold tracking-wider uppercase mb-4">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                <span>HOW GOZONIXA WORKS</span>
+            </span>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background tracking-tight mb-4">
+                From Application to Placement — Simplified
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+                From your first application to the right opportunity, Gozonixa connects talented professionals with trusted hiring partners through a simple, human-led process.
+            </p>
         </div>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-background tracking-tight mb-4">
-            From Application to <span class="bg-gradient-to-r from-primary via-blue-600 to-indigo-600 bg-clip-text text-transparent">Opportunity</span>
-        </h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-            From your first application to the right opportunity, HireOrbit connects talented professionals with trusted hiring partners through a simple, human-led process.
-        </p>
-    </div>
 
     <!-- Perspective / Journey Switcher Tabs -->
     <div class="flex justify-center mb-12 fade-up">
@@ -385,7 +387,7 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
                         <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">03</div>
                         <div>
                             <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
-                                <span>HireOrbit Screening</span>
+                                <span>Gozonixa Screening</span>
                                 <span class="material-symbols-outlined text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">record_voice_over</span>
                             </h4>
                             <p class="text-xs text-on-surface-variant leading-relaxed">Our recruitment specialists review your credentials and conduct an initial screening interview.</p>
@@ -408,104 +410,87 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
                 </div>
             </div>
 
-            <!-- CENTER LANE: HireOrbit Intelligent Matching Engine (Cols 6-7) -->
-            <div id="matching-lane" class="col-span-2 flex flex-col items-center justify-center pt-8 space-y-6">
-                <!-- Dual Convergence Visual Arrows -->
-                <div class="flex items-center justify-between w-full text-primary/40 px-2">
-                    <span class="material-symbols-outlined text-2xl animate-pulse">south_east</span>
-                    <span class="material-symbols-outlined text-2xl animate-pulse">south_west</span>
+            <!-- CENTER LANE: Gozonixa Intelligent Matching Engine (Cols 6-7) -->
+            <div id="matching-lane" class="md:col-span-2 flex flex-col justify-center items-center text-center p-6 rounded-3xl bg-gradient-to-b from-primary/10 via-surface-container-high/80 to-indigo-500/10 border-2 border-primary/20 soft-shadow relative z-10 transition-opacity duration-300">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary via-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-xl shadow-primary/30 mb-4 animate-bounce">
+                    <span class="material-symbols-outlined text-[36px]">all_inclusive</span>
                 </div>
-
-                <!-- Central Orbital Pulsing Node -->
-                <div class="orbit-pulse-node relative w-full p-5 rounded-3xl bg-gradient-to-b from-primary via-blue-700 to-indigo-800 text-white shadow-xl shadow-primary/30 text-center flex flex-col items-center overflow-hidden border border-white/20">
-                    <!-- Spinning decorative background orbit -->
-                    <div class="absolute -inset-4 border border-white/20 rounded-full spin-slow pointer-events-none opacity-40"></div>
-                    
-                    <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-3 shadow-inner">
-                        <span class="material-symbols-outlined text-2xl text-white">all_inclusive</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-white font-label-md text-[11px] font-bold tracking-wider uppercase mb-3">
+                    <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-ping"></span>
+                    Gozonixa Engine
+                </span>
+                <h3 class="font-headline-sm text-lg font-bold text-on-background mb-2">Intelligent Matching Engine</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed mb-4">
+                    Our team blends smart criteria evaluation with personalized review to ensure every match aligns on skills, culture, and goals.
+                </p>
+                <div class="w-full space-y-2 text-left bg-white/70 dark:bg-inverse-surface/70 rounded-xl p-3 text-[11px] border border-outline-variant/30">
+                    <div class="flex items-center gap-2 text-emerald-600 font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                        Verified Skill Validation
                     </div>
-                    <div class="font-display text-sm font-black tracking-tight leading-tight mb-1">
-                        HireOrbit
+                    <div class="flex items-center gap-2 text-primary font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                        Role & Compensation Fit
                     </div>
-                    <div class="text-[11px] font-semibold text-blue-200 uppercase tracking-wider mb-2">
-                        Matching Hub
-                    </div>
-                    <p class="text-[11px] text-blue-100/90 leading-tight">
-                        Human-Led & AI-Powered Precision Alignment
-                    </p>
-                </div>
-
-                <!-- Downward Arrow to Company Interview & Placement -->
-                <div class="flex flex-col items-center gap-1 text-primary">
-                    <div class="w-0.5 h-6 bg-gradient-to-b from-primary to-indigo-600 rounded-full"></div>
-                    <span class="material-symbols-outlined text-2xl animate-bounce">arrow_downward</span>
                 </div>
             </div>
 
-            <!-- RIGHT LANE: Company Flow (Cols 8-12) -->
-            <div id="company-lane" class="col-span-5 space-y-4 transition-all duration-500">
-                <div class="flex items-center gap-3 mb-2 pb-2 border-b border-indigo-500/20">
-                    <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-bold">
-                        <span class="material-symbols-outlined text-[20px]">domain</span>
+            <!-- RIGHT LANE: Company Journey (Cols 8-12) -->
+            <div id="company-lane" class="md:col-span-5 space-y-4 transition-opacity duration-300">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[22px]">domain</span>
                     </div>
                     <div>
                         <h3 class="font-headline-sm text-base font-bold text-on-background">Company Journey</h3>
-                        <p class="text-xs text-on-surface-variant">For hiring partners & employers</p>
+                        <p class="text-xs text-on-surface-variant">How hiring partners source top talent</p>
                     </div>
                 </div>
 
-                <!-- Step E1 -->
-                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e1')" onclick="highlightStep('e1')">
+                <div class="flow-card p-4 rounded-2xl bg-white/80 dark:bg-inverse-surface/80 border border-outline-variant/30 transition-all hover:border-primary/50 cursor-pointer" onclick="highlightStep('c1')">
                     <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">01</div>
+                        <span class="w-6 h-6 rounded-lg bg-indigo-500/10 text-indigo-600 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
                         <div>
                             <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
-                                <span>Partner & Share Specs</span>
-                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">handshake</span>
+                                Partner & Share Criteria
                             </h4>
-                            <p class="text-xs text-on-surface-variant leading-relaxed">Companies connect with HireOrbit and outline required roles, skills, experience, and timeline.</p>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Companies connect with Gozonixa and outline required roles, skills, experience, and timeline.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step E2 -->
-                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e2')" onclick="highlightStep('e2')">
+                <div class="flow-card p-4 rounded-2xl bg-white/80 dark:bg-inverse-surface/80 border border-outline-variant/30 transition-all hover:border-primary/50 cursor-pointer" onclick="highlightStep('c2')">
                     <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">02</div>
+                        <span class="w-6 h-6 rounded-lg bg-indigo-500/10 text-indigo-600 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
                         <div>
                             <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
-                                <span>Candidate Pool Sourcing</span>
-                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">manage_search</span>
+                                Candidate Pool Matching
                             </h4>
-                            <p class="text-xs text-on-surface-variant leading-relaxed">HireOrbit filters and targets relevant candidates from our pre-vetted professional talent pool.</p>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Gozonixa filters and targets relevant candidates from our pre-vetted professional talent pool.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step E3 -->
-                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e3')" onclick="highlightStep('e3')">
+                <div class="flow-card p-4 rounded-2xl bg-white/80 dark:bg-inverse-surface/80 border border-outline-variant/30 transition-all hover:border-primary/50 cursor-pointer" onclick="highlightStep('c3')">
                     <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">03</div>
+                        <span class="w-6 h-6 rounded-lg bg-indigo-500/10 text-indigo-600 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
                         <div>
                             <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
-                                <span>Rigorous Skill Vetting</span>
-                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">psychology</span>
+                                Candidate Assignment
                             </h4>
-                            <p class="text-xs text-on-surface-variant leading-relaxed">Our domain evaluators conduct thorough technical and behavioral screenings against role requirements.</p>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Top matched candidates are assigned to active company hiring pipelines for review and interview.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step E4 -->
-                <div class="flow-card p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow cursor-pointer group" onmouseenter="highlightStep('e4')" onclick="highlightStep('e4')">
+                <div class="flow-card p-4 rounded-2xl bg-white/80 dark:bg-inverse-surface/80 border border-outline-variant/30 transition-all hover:border-primary/50 cursor-pointer" onclick="highlightStep('c4')">
                     <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-extrabold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">04</div>
+                        <span class="w-6 h-6 rounded-lg bg-indigo-500/10 text-indigo-600 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
                         <div>
                             <h4 class="font-headline-sm text-sm font-bold text-on-background mb-1 flex items-center gap-1.5">
-                                <span>Candidate Assignment</span>
-                                <span class="material-symbols-outlined text-xs text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">assignment_ind</span>
+                                Seamless Selection
                             </h4>
-                            <p class="text-xs text-on-surface-variant leading-relaxed">HireOrbit presents vetted, high-match candidate dossiers directly to the company hiring team.</p>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">Gozonixa presents vetted, high-match candidate dossiers directly to the company hiring team.</p>
                         </div>
                     </div>
                 </div>
@@ -570,7 +555,7 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
                 <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
                     <div class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center shrink-0">3</div>
                     <div>
-                        <h5 class="font-bold text-sm text-on-background">HireOrbit Screening</h5>
+                        <h5 class="font-bold text-sm text-on-background">Gozonixa Screening</h5>
                         <p class="text-xs text-on-surface-variant mt-0.5">Initial interview and evaluation by our specialists.</p>
                     </div>
                 </div>
@@ -584,30 +569,27 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
             </div>
 
             <!-- Mobile Central Hub Badge -->
-            <div class="p-4 rounded-2xl bg-gradient-to-r from-primary to-indigo-700 text-white text-center shadow-lg my-4">
-                <div class="flex items-center justify-center gap-2 font-display font-bold text-sm">
-                    <span class="material-symbols-outlined text-lg">hub</span>
-                    <span>HireOrbit Intelligent Matching Engine</span>
+            <div class="text-center shrink-0">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-primary to-indigo-600 text-white flex items-center justify-center shadow-lg mx-auto mb-2">
+                    <span class="material-symbols-outlined text-[26px]">all_inclusive</span>
                 </div>
-                <p class="text-xs text-blue-100 mt-1">Connecting pre-screened talent with exact hiring specifications</p>
+                <span class="font-bold text-xs text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">Gozonixa Intelligent Matching Engine</span>
             </div>
 
             <div id="mobile-company-steps" class="space-y-4">
                 <div class="text-xs font-bold uppercase tracking-wider text-indigo-600 flex items-center gap-2 px-1">
                     <span class="material-symbols-outlined text-sm">domain</span> Company Steps
                 </div>
-                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
-                    <div class="w-7 h-7 rounded-lg bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0">1</div>
-                    <div>
+                <div class="flex items-center gap-3 bg-white/80 dark:bg-inverse-surface/80 p-3 rounded-xl border border-outline-variant/30 shadow-sm shrink-0">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-bold text-xs">1</div>
+                    <div class="text-left">
                         <h5 class="font-bold text-sm text-on-background">Partner & Share Criteria</h5>
-                        <p class="text-xs text-on-surface-variant mt-0.5">Define role requirements, budget, and desired skills.</p>
                     </div>
                 </div>
-                <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
-                    <div class="w-7 h-7 rounded-lg bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0">2</div>
-                    <div>
+                <div class="flex items-center gap-3 bg-white/80 dark:bg-inverse-surface/80 p-3 rounded-xl border border-outline-variant/30 shadow-sm shrink-0">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-bold text-xs">2</div>
+                    <div class="text-left">
                         <h5 class="font-bold text-sm text-on-background">Candidate Pool Matching</h5>
-                        <p class="text-xs text-on-surface-variant mt-0.5">Automated and recruiter-curated candidate searches.</p>
                     </div>
                 </div>
                 <div class="p-4 rounded-2xl bg-white border border-outline-variant/30 soft-shadow flex gap-3.5">
@@ -621,24 +603,22 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
         </div>
     </div>
 
-    <!-- Final Call to Action Box -->
-    <div class="max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-primary/10 via-surface-container-low to-indigo-500/10 border border-primary/20 p-8 sm:p-12 text-center soft-shadow fade-up relative overflow-hidden">
-        <div class="relative z-10">
-            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-on-background mb-3">
-                Ready to take the next step?
-            </h3>
-            <p class="font-body-md text-on-surface-variant max-w-xl mx-auto mb-8">
-                Join thousands of ambitious professionals and top-tier companies finding their perfect match with HireOrbit.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button class="w-full sm:w-auto font-label-md text-label-md bg-primary text-white px-8 py-3.5 rounded-xl hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
-                    <span>Register Now</span>
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </button>
-                <button class="w-full sm:w-auto font-label-md text-label-md border-2 border-primary text-primary px-8 py-3.5 rounded-xl hover:bg-primary/5 transition-all duration-300">
-                    <span>Browse Jobs</span>
-                </button>
-            </div>
+    <!-- CTA Section inside How it works -->
+    <div class="max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-primary/10 via-surface-container-low to-indigo-500/10 border border-primary/20 p-8 sm:p-12 text-center soft-shadow relative overflow-hidden">
+        <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-on-background mb-3">
+            Ready to Take the Next Step in Your Career?
+        </h3>
+        <p class="font-body-md text-on-surface-variant max-w-xl mx-auto mb-8 text-sm sm:text-base">
+            Join thousands of ambitious professionals and top-tier companies finding their perfect match with Gozonixa.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#/register" class="w-full sm:w-auto font-label-md text-label-md bg-primary text-white px-8 py-3.5 rounded-xl hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 inline-flex">
+                Get Started Now
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <button class="w-full sm:w-auto font-label-md text-label-md border-2 border-primary text-primary px-8 py-3.5 rounded-xl hover:bg-primary/5 transition-all duration-300">
+                Learn More
+            </button>
         </div>
     </div>
 </section>
@@ -651,7 +631,7 @@ Hire<span class="bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-t
 <span class="material-symbols-outlined text-[20px]">all_inclusive</span>
 </div>
 <span class="font-['Outfit',sans-serif] text-2xl font-black tracking-tight text-white">
-Hire<span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">Orbit</span>
+Gozon<span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">ixa</span>
 </span>
 </a>
 <p class="font-body-md text-body-md text-surface-variant/80 mb-6">Next-generation recruitment platform connecting elite global talent with premier technology leaders.</p>
@@ -673,11 +653,11 @@ Hire<span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-
 </div>
 <div class="col-span-1">
 <h4 class="font-label-md text-label-md text-white mb-4">Contact</h4>
-<p class="font-body-md text-body-md text-surface-variant/80 mb-2">contact@hireorbit.com</p>
+<p class="font-body-md text-body-md text-surface-variant/80 mb-2">contact@gozonixa.com</p>
 <p class="font-body-md text-body-md text-surface-variant/80">+1 (555) 123-4567</p>
 </div>
 <div class="col-span-1 md:col-span-4 mt-12 pt-8 border-t border-white/10 text-center font-body-md text-body-md text-surface-variant/60">
-            © 2026 HireOrbit Recruitment. All rights reserved.
+            © 2026 Gozonixa Recruitment. All rights reserved.
         </div>
 </footer>
 <script>
@@ -785,4 +765,5 @@ Hire<span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-
             spyObserver.observe(howItWorksSection);
         }
     </script>
+    <script type="module" src="./js/app.js"></script>
 </body></html>
