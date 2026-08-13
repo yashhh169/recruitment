@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { 
   Users, Building2, Search, Filter, ShieldCheck, CheckCircle2, Award, Target, 
   Briefcase, GraduationCap, PhoneCall, Check, ArrowRight, Zap, TrendingUp, 
@@ -7,19 +6,14 @@ import {
   Headset, DollarSign, Lightbulb, Star, RefreshCw, Lock, Rocket, 
   MessageSquare, FileCheck, ThumbsUp, Code, Database, Cpu, Settings, 
   LineChart, UserPlus, XCircle, ArrowUpRight, HelpCircle, ChevronRight,
-  ShieldAlert, Activity, CheckCircle, ChevronLeft, Globe, Send, X, MessageCircle
+  ShieldAlert, Activity, CheckCircle, ChevronLeft, Globe
 } from 'lucide-react';
 
 export const LandingPage = () => {
   // Carousel State for "Why Gozonixa?"
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Chatbot State
-  const [chatOpen, setChatOpen] = useState(false);
-  const [chatMessages, setChatMessages] = useState([
-    { sender: 'bot', text: 'Hello! I am Gozonixa Copilot. How can I assist you with talent staffing or career opportunities today?' }
-  ]);
-  const [chatInput, setChatInput] = useState('');
+
 
   // Why Gozonixa Slide Items (Matching page_content exact data & images)
   const whyItems = [
@@ -89,26 +83,7 @@ export const LandingPage = () => {
     return () => clearInterval(timer);
   }, [whyItems.length]);
 
-  const handleSendMessage = (textToSend) => {
-    const query = textToSend || chatInput;
-    if (!query.trim()) return;
 
-    const newMsgs = [...chatMessages, { sender: 'user', text: query }];
-    setChatMessages(newMsgs);
-    setChatInput('');
-
-    // Simulate AI Copilot Response
-    setTimeout(() => {
-      let botReply = "Thank you for reaching out to Gozonixa! Our team can assist with Contingent Staffing, Managed Services, or Direct Hire. Would you like to connect with a talent specialist?";
-      const lower = query.toLowerCase();
-      if (lower.includes('job') || lower.includes('career') || lower.includes('candidate')) {
-        botReply = "Explore thousands of consultant and corporate job opportunities with Gozonixa. Click 'Get Started' above or share your resume for 100% free placement assistance.";
-      } else if (lower.includes('staffing') || lower.includes('hire') || lower.includes('employer')) {
-        botReply = "Gozonixa provides pre-screened, quality-checked talent across Tech, IT Ops, Finance, and Managed Services. Let us know your role requirement details!";
-      }
-      setChatMessages((prev) => [...prev, { sender: 'bot', text: botReply }]);
-    }, 700);
-  };
 
   return (
     <main className="pt-24 bg-[#f8fafc] text-slate-800 min-h-screen font-sans selection:bg-[#253e91] selection:text-white overflow-x-hidden">
@@ -128,12 +103,12 @@ export const LandingPage = () => {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white tracking-tight">
-              Empowering Businesses and Careers <br />
-              <span className="text-[#fba91e]">With Precision Talent</span>
+              Exceptional Talent. <br />
+              <span className="text-[#fba91e]">Enduring Success.</span>
             </h1>
 
             <p className="text-blue-100 text-base sm:text-lg max-w-2xl leading-relaxed font-normal">
-              Gozonixa provides top talent & strategy solutions. Partner with us for Workforce Solutions, Managed Services & Project Delivery with value, flexibility, and predictability.
+              We partner with ambitious businesses to identify, attract, and secure high-impact professionals who shape lasting growth.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -144,13 +119,13 @@ export const LandingPage = () => {
                 <span>OUR SOLUTIONS</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <Link 
-                to="/register"
+              <a 
+                href="#our-solutions"
                 className="bg-blue-900/80 hover:bg-blue-800 text-white font-bold px-7 py-3.5 rounded-xl border border-blue-400/40 transition-all flex items-center gap-2"
               >
                 <span>GET STARTED</span>
                 <ChevronRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -426,121 +401,8 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-
         </div>
       </section>
-
-      {/* 🤖 FLOATING AI COPILOT CHATBOT WIDGET */}
-      <div className="fixed bottom-6 right-6 z-50">
-        
-        {/* Launcher Tooltip Badge */}
-        {!chatOpen && (
-          <div 
-            onClick={() => setChatOpen(true)}
-            className="flex items-center gap-2 bg-[#253e91] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl cursor-pointer hover:bg-blue-900 transition-all border border-blue-400/40 mb-2 animate-bounce"
-          >
-            <span>👋 Hello! I am Gozonixa Copilot.</span>
-          </div>
-        )}
-
-        {/* Launcher Floating Button */}
-        {!chatOpen && (
-          <button 
-            onClick={() => setChatOpen(true)}
-            className="w-14 h-14 rounded-full bg-[#253e91] hover:bg-blue-950 text-white flex items-center justify-center shadow-2xl border-2 border-[#fba91e] transition-transform hover:scale-110 ml-auto"
-            aria-label="Open Gozonixa Copilot"
-          >
-            <img src="/assets/artechcopilot.png" alt="Copilot Icon" className="w-8 h-8 object-contain" />
-          </button>
-        )}
-
-        {/* Floating Chat Modal Panel */}
-        {chatOpen && (
-          <div className="w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-[480px] animate-in slide-in-from-bottom-5 duration-300">
-            
-            {/* Chat Header */}
-            <div className="bg-[#253e91] text-white p-4 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-white/20 p-1 flex items-center justify-center">
-                  <img src="/assets/artechcopilot.png" alt="Copilot" className="w-6 h-6 object-contain" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm leading-tight text-white">Gozonixa Copilot</h4>
-                  <p className="text-[10px] text-blue-200">Online • AI Staffing Assistant</p>
-                </div>
-              </div>
-              <button 
-                onClick={() => setChatOpen(false)}
-                className="text-white/80 hover:text-white p-1"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Chat Messages Body */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50 text-xs">
-              {chatMessages.map((msg, index) => (
-                <div 
-                  key={index}
-                  className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div 
-                    className={`max-w-[80%] p-3 rounded-xl leading-relaxed ${
-                      msg.sender === 'user' 
-                        ? 'bg-[#253e91] text-white rounded-br-none font-medium' 
-                        : 'bg-white border border-slate-200 text-slate-800 rounded-bl-none shadow-sm'
-                    }`}
-                  >
-                    {msg.text}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Quick Option Pills */}
-            <div className="p-2 bg-slate-100 border-t border-slate-200 flex gap-2 overflow-x-auto text-[10px]">
-              <button 
-                onClick={() => handleSendMessage('I need IT Talent Staffing')}
-                className="bg-white hover:bg-blue-50 border border-slate-300 text-[#253e91] font-bold px-2.5 py-1 rounded-full whitespace-nowrap"
-              >
-                💼 IT Staffing
-              </button>
-              <button 
-                onClick={() => handleSendMessage('Explore Consultant Jobs')}
-                className="bg-white hover:bg-blue-50 border border-slate-300 text-[#253e91] font-bold px-2.5 py-1 rounded-full whitespace-nowrap"
-              >
-                🔍 Job Opportunities
-              </button>
-              <button 
-                onClick={() => handleSendMessage('Managed Services Info')}
-                className="bg-white hover:bg-blue-50 border border-slate-300 text-[#253e91] font-bold px-2.5 py-1 rounded-full whitespace-nowrap"
-              >
-                ⚙️ Managed Services
-              </button>
-            </div>
-
-            {/* Chat Input Field */}
-            <div className="p-3 bg-white border-t border-slate-200 flex gap-2">
-              <input 
-                type="text"
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-                placeholder="Ask Gozonixa Copilot..."
-                className="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#253e91]"
-              />
-              <button 
-                onClick={() => handleSendMessage()}
-                className="bg-[#253e91] hover:bg-blue-900 text-white p-2 rounded-lg"
-              >
-                <Send className="w-4 h-4" />
-              </button>
-            </div>
-
-          </div>
-        )}
-
-      </div>
 
     </main>
   );

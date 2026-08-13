@@ -1,22 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 import { 
-  Infinity, LogOut, User, Menu, X, ChevronDown, 
-  Linkedin, Facebook, Twitter, Instagram, Globe, Sparkles 
+  Infinity, Menu, X, ChevronDown, 
+  Linkedin, Facebook, Twitter, Instagram, Sparkles 
 } from 'lucide-react';
 
 export const Navbar = () => {
-  const { user, isAuthenticated, logout } = useAuth();
-  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLang, setActiveLang] = useState('EN');
   const [activeDropdown, setActiveDropdown] = useState(null);
-
-  const handleLogout = async () => {
-    await logout();
-    navigate('/login');
-  };
 
   const navMenuItems = [
     {
@@ -132,14 +123,14 @@ export const Navbar = () => {
         <div className="flex justify-between items-center max-w-container-max mx-auto px-4 sm:px-8 py-3">
           
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
+          <a href="#" className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 rounded-xl bg-[#253e91] flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform duration-300">
               <Infinity className="w-6 h-6 text-[#fba91e]" />
             </div>
             <span className="font-display text-2xl font-black tracking-tight text-[#253e91]">
               Gozon<span className="text-[#fba91e]">ixa</span>
             </span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-700">
@@ -176,33 +167,11 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Desktop Auth CTA */}
+          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            {isAuthenticated && user ? (
-              <>
-                <Link to="/dashboard" className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-blue-50 text-[#253e91] border border-blue-200 hover:bg-blue-100 transition-colors">
-                  <User className="w-4 h-4" />
-                  {user.name.split(' ')[0]}
-                </Link>
-                <button 
-                  id="nav-logout-btn"
-                  onClick={handleLogout}
-                  className="text-xs font-semibold border border-slate-200 text-slate-700 hover:text-rose-600 hover:border-rose-300 px-3.5 py-1.5 rounded-lg transition-colors flex items-center gap-1"
-                >
-                  <LogOut className="w-4 h-4" />
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" className="text-xs font-bold text-[#253e91] hover:text-blue-900 px-4 py-2 rounded-lg transition-colors">
-                  LOGIN
-                </Link>
-                <Link to="/register" className="text-xs font-bold bg-[#253e91] hover:bg-blue-900 text-white px-5 py-2 rounded-lg shadow-sm hover:shadow transition-all border border-blue-900">
-                  GET STARTED
-                </Link>
-              </>
-            )}
+            <a href="#our-solutions" className="text-xs font-bold bg-[#253e91] hover:bg-blue-900 text-white px-5 py-2 rounded-lg shadow-sm hover:shadow transition-all border border-blue-900">
+              GET STARTED
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -246,41 +215,14 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
-              {isAuthenticated && user ? (
-                <>
-                  <Link 
-                    to="/dashboard" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 py-2 text-xs font-bold text-[#253e91]"
-                  >
-                    <User className="w-4 h-4" /> DASHBOARD
-                  </Link>
-                  <button 
-                    onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
-                    className="flex items-center gap-2 py-2 text-xs font-semibold text-rose-600"
-                  >
-                    <LogOut className="w-4 h-4" /> LOGOUT
-                  </button>
-                </>
-              ) : (
-                <div className="grid grid-cols-2 gap-3 pt-1 text-xs font-bold">
-                  <Link 
-                    to="/login" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-center border border-[#253e91] text-[#253e91] py-2.5 rounded-lg"
-                  >
-                    LOGIN
-                  </Link>
-                  <Link 
-                    to="/register" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-center bg-[#253e91] text-white py-2.5 rounded-lg"
-                  >
-                    GET STARTED
-                  </Link>
-                </div>
-              )}
+            <div className="pt-3 border-t border-slate-200">
+              <a 
+                href="#our-solutions" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-center bg-[#253e91] text-white py-2.5 rounded-lg font-bold text-xs"
+              >
+                GET STARTED
+              </a>
             </div>
           </div>
         )}
