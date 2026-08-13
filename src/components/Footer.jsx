@@ -1,81 +1,92 @@
 import React from 'react';
-import { Infinity } from 'lucide-react';
+import { Infinity, Linkedin, Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0f172a] text-slate-100 border-t border-slate-800 w-full text-center md:text-left font-sans">
-      <div className="max-w-container-max mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
+    <footer className="bg-[#1b2e6b] text-slate-200 border-t border-blue-900/60 w-full text-center md:text-left font-sans">
+      <div className="max-w-container-max mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         
         {/* Brand Column */}
-        <div className="col-span-1 md:col-span-1 lg:col-span-2 space-y-4">
-          <a className="inline-flex items-center gap-2.5 group" href="/#who-we-are">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0053db] via-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold shadow-md shadow-blue-500/20">
-              <Infinity className="w-5 h-5" />
+        <div className="lg:col-span-2 space-y-4">
+          <a className="inline-flex items-center gap-2.5 group" href="#who-we-are">
+            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#253e91] font-bold shadow-md">
+              <Infinity className="w-6 h-6 text-[#253e91]" />
             </div>
             <span className="font-display text-2xl font-black tracking-tight text-white">
-              Gozon<span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">ixa</span>
+              Gozon<span className="text-[#fba91e]">ixa</span>
             </span>
           </a>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
-            Gozonixa is a recruitment and talent solutions partner connecting enterprise businesses with pre-screened professionals through a transparent, requirement-driven model.
+          <p className="text-xs sm:text-sm text-blue-200 max-w-sm leading-relaxed">
+            Gozonixa is a global staffing, workforce, and IT solutions partner. We deliver contingent staffing, managed services, project delivery, and diversity programs to Fortune 500 enterprises.
           </p>
-          <div className="text-xs text-slate-300 font-mono">
-            🛡️ <strong className="text-emerald-400">Zero Candidate Fee Policy:</strong> Job seekers are never charged any fees.
+          <div className="flex items-center gap-3 pt-2">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-[#fba91e] hover:text-slate-950 flex items-center justify-center transition-colors text-white">
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-[#fba91e] hover:text-slate-950 flex items-center justify-center transition-colors text-white">
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-[#fba91e] hover:text-slate-950 flex items-center justify-center transition-colors text-white">
+              <Twitter className="w-4 h-4" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-[#fba91e] hover:text-slate-950 flex items-center justify-center transition-colors text-white">
+              <Instagram className="w-4 h-4" />
+            </a>
           </div>
         </div>
 
-        {/* Quick Links Column 1 */}
-        <div className="col-span-1 space-y-3">
-          <h4 className="font-mono text-xs font-bold text-blue-400 uppercase tracking-wider">Recruitment Model</h4>
-          <ul className="space-y-2 text-xs text-slate-400 font-mono">
-            <li><a className="hover:text-blue-300 transition-colors" href="/#who-we-are">WHO WE ARE</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#what-we-do">WHAT WE DO (12 STEPS)</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#recruitment-approach">OUR APPROACH</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#screening-process">SCREENING MATRIX (8-PT)</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#service-model">COMMERCIAL MODEL</a></li>
+        {/* Column 2: Our Solutions */}
+        <div className="space-y-3">
+          <h4 className="text-xs font-bold text-[#fba91e] uppercase tracking-wider">Our Solutions</h4>
+          <ul className="space-y-2 text-xs text-blue-200">
+            <li><a className="hover:text-white transition-colors" href="#contingent-staffing">Contingent Staffing</a></li>
+            <li><a className="hover:text-white transition-colors" href="#project-staffing">Project Staffing & MVP</a></li>
+            <li><a className="hover:text-white transition-colors" href="#rpo">Recruitment Process Outsourcing</a></li>
+            <li><a className="hover:text-white transition-colors" href="#direct-hire">Direct Hire Services</a></li>
+            <li><a className="hover:text-white transition-colors" href="#managed-services">Managed Services & IT</a></li>
+            <li><a className="hover:text-white transition-colors" href="#diversity">Diversity & Inclusion</a></li>
           </ul>
         </div>
 
-        {/* Quick Links Column 2 */}
-        <div className="col-span-1 space-y-3">
-          <h4 className="font-mono text-xs font-bold text-blue-400 uppercase tracking-wider">Stakeholders</h4>
-          <ul className="space-y-2 text-xs text-slate-400 font-mono">
-            <li><a className="hover:text-blue-300 transition-colors" href="/#for-employers">FOR EMPLOYERS</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#for-candidates">FOR CANDIDATES</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#readiness">READINESS SUPPORT</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#values">CORE VALUES</a></li>
-            <li><a className="hover:text-blue-300 transition-colors" href="/#industries">INDUSTRIES & ROLES</a></li>
+        {/* Column 3: Quick Links */}
+        <div className="space-y-3">
+          <h4 className="text-xs font-bold text-[#fba91e] uppercase tracking-wider">Quick Links</h4>
+          <ul className="space-y-2 text-xs text-blue-200">
+            <li><a className="hover:text-white transition-colors" href="#advantage">Gozonixa Advantage</a></li>
+            <li><a className="hover:text-white transition-colors" href="#work">Great Place to Work</a></li>
+            <li><a className="hover:text-white transition-colors" href="#certifications">Certifications & Awards</a></li>
+            <li><a className="hover:text-white transition-colors" href="#corporate-jobs">Corporate Jobs</a></li>
+            <li><a className="hover:text-white transition-colors" href="#consultant-jobs">Consultant Jobs</a></li>
+            <li><a className="hover:text-white transition-colors" href="#community">Community First</a></li>
           </ul>
         </div>
 
-        {/* Contact Column */}
-        <div className="col-span-1 space-y-3">
-          <h4 className="font-mono text-xs font-bold text-blue-400 uppercase tracking-wider">Contact & Support</h4>
-          <p className="text-xs text-slate-400 font-mono">partner@gozonixa.com</p>
-          <p className="text-xs text-slate-400 font-mono">+1 (800) GOZONIXA</p>
-          <div className="pt-2">
-            <a 
-              href="/#cta" 
-              className="inline-block bg-[#0053db] hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-xs font-mono font-bold transition-colors shadow-md"
-            >
-              GET STARTED
-            </a>
+        {/* Column 4: Global Offices */}
+        <div className="space-y-3">
+          <h4 className="text-xs font-bold text-[#fba91e] uppercase tracking-wider">Global Footprint</h4>
+          <p className="text-xs text-blue-200 leading-relaxed">
+            USA, Canada, India, China, Mexico, Philippines, Ireland, Poland, & Singapore.
+          </p>
+          <div className="pt-2 text-xs text-blue-100 space-y-1">
+            <p className="flex items-center justify-center md:justify-start gap-1.5"><Mail className="w-3.5 h-3.5 text-[#fba91e]" /> contact@gozonixa.com</p>
+            <p className="flex items-center justify-center md:justify-start gap-1.5"><Phone className="w-3.5 h-3.5 text-[#fba91e]" /> +1 (800) GOZONIXA</p>
           </div>
         </div>
 
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-slate-800 py-6 text-center text-xs text-slate-400 font-mono">
+      {/* Bottom Legal Bar */}
+      <div className="border-t border-blue-900/80 py-6 text-center text-xs text-blue-300">
         <div className="max-w-container-max mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>© 2026 GOZONIXA RECRUITMENT & TALENT PARTNER. ALL RIGHTS RESERVED.</div>
-          <div className="flex gap-6">
-            <a href="/#who-we-are" className="hover:underline">PRIVACY POLICY</a>
-            <a href="/#service-model" className="hover:underline">TERMS OF SERVICE</a>
-            <a href="/#for-candidates" className="hover:underline">CANDIDATE POLICY</a>
+          <div>© 2026 GOZONIXA LLC. ALL RIGHTS RESERVED.</div>
+          <div className="flex gap-6 text-blue-200">
+            <a href="#privacy" className="hover:text-white hover:underline">PRIVACY POLICY</a>
+            <a href="#terms" className="hover:text-white hover:underline">TERMS OF USE</a>
+            <a href="#gdpr" className="hover:text-white hover:underline">GDPR COMPLIANCE</a>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
