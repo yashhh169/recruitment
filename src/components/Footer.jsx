@@ -4,7 +4,7 @@ import { Infinity, Linkedin, Facebook, Twitter, Instagram, Mail, Phone, MapPin }
 export const Footer = () => {
   return (
     <footer className="bg-[#1b2e6b] text-slate-200 border-t border-blue-900/60 w-full text-center md:text-left font-sans">
-      <div className="max-w-container-max mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="max-w-container-max mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         {/* Brand Column */}
         <div className="lg:col-span-2 space-y-4">
@@ -48,18 +48,6 @@ export const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 3: Quick Links */}
-        <div className="space-y-3">
-          <h4 className="text-xs font-bold text-[#fba91e] uppercase tracking-wider">Quick Links</h4>
-          <ul className="space-y-2 text-xs text-blue-200">
-            <li><a className="hover:text-white transition-colors" href="#advantage">Gozonixa Advantage</a></li>
-            <li><a className="hover:text-white transition-colors" href="#work">Great Place to Work</a></li>
-            <li><a className="hover:text-white transition-colors" href="#certifications">Certifications & Awards</a></li>
-            <li><a className="hover:text-white transition-colors" href="#corporate-jobs">Corporate Jobs</a></li>
-            <li><a className="hover:text-white transition-colors" href="#consultant-jobs">Consultant Jobs</a></li>
-            <li><a className="hover:text-white transition-colors" href="#community">Community First</a></li>
-          </ul>
-        </div>
 
         {/* Column 4: Global Offices */}
         <div className="space-y-3">

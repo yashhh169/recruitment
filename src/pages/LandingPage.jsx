@@ -86,7 +86,7 @@ export const LandingPage = () => {
 
 
   return (
-    <main className="pt-24 bg-[#f8fafc] text-slate-800 min-h-screen font-sans selection:bg-[#253e91] selection:text-white overflow-x-hidden">
+    <main className="pt-16 bg-[#f8fafc] text-slate-800 min-h-screen font-sans selection:bg-[#253e91] selection:text-white overflow-x-hidden">
 
       {/* 🔴 HERO BANNER SLIDER SECTION */}
       <section className="relative bg-[#253e91] text-white py-20 lg:py-28 overflow-hidden">
@@ -97,11 +97,6 @@ export const LandingPage = () => {
         <div className="relative max-w-container-max mx-auto px-4 sm:px-8 grid lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-8 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-900/60 border border-blue-400/30 text-[#fba91e] font-mono text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-4 h-4 animate-spin" />
-              <span>GLOBAL STAFFING, WORKFORCE & IT SOLUTIONS</span>
-            </div>
-
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white tracking-tight">
               Exceptional Talent. <br />
               <span className="text-[#fba91e]">Enduring Success.</span>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  Infinity, Menu, X, ChevronDown, 
-  Linkedin, Facebook, Twitter, Instagram, Sparkles 
+  Infinity, Menu, X, ChevronDown 
 } from 'lucide-react';
 
 export const Navbar = () => {
@@ -48,17 +47,6 @@ export const Navbar = () => {
       href: '#community'
     },
     {
-      name: 'Resources',
-      href: '#resources',
-      submenu: [
-        { name: 'Articles & Blogs', href: '#blogs' },
-        { name: 'Whitepapers & Reports', href: '#whitepapers' },
-        { name: 'Case Studies', href: '#case-studies' },
-        { name: 'Webinars & Ebooks', href: '#webinars' },
-        { name: 'Insights from Gozonixa', href: '#insights' }
-      ]
-    },
-    {
       name: 'Contact Us',
       href: '#contact-us'
     }
@@ -67,56 +55,6 @@ export const Navbar = () => {
   return (
     <header className="fixed top-0 w-full z-50 transition-all duration-300 shadow-md">
       
-      {/* 🔵 TOP HEADER BAR (Navy Blue #253e91) */}
-      <div className="bg-[#253e91] text-white text-xs py-1.5 px-4 sm:px-8 border-b border-blue-900/40">
-        <div className="max-w-container-max mx-auto flex justify-between items-center">
-          
-          {/* Left Announcement / Tagline */}
-          <div className="hidden sm:flex items-center gap-2 text-blue-100 font-medium">
-            <Sparkles className="w-3.5 h-3.5 text-[#fba91e]" />
-            <span>Global Staffing, Workforce & IT Solutions Partner</span>
-          </div>
-
-          {/* Right Controls: Social Links & Language Pill Switcher */}
-          <div className="flex items-center gap-6 ml-auto">
-            <div className="flex items-center gap-3 text-blue-200">
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn">
-                <Linkedin className="w-3.5 h-3.5" />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Facebook">
-                <Facebook className="w-3.5 h-3.5" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Twitter">
-                <Twitter className="w-3.5 h-3.5" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Instagram">
-                <Instagram className="w-3.5 h-3.5" />
-              </a>
-            </div>
-
-            {/* EN/FR Language Switcher Pill */}
-            <div className="flex items-center bg-blue-950/60 rounded-full p-0.5 border border-blue-400/30">
-              <button 
-                onClick={() => setActiveLang('EN')}
-                className={`px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider transition-all ${
-                  activeLang === 'EN' ? 'bg-[#fba91e] text-slate-950 shadow-sm' : 'text-blue-200 hover:text-white'
-                }`}
-              >
-                EN
-              </button>
-              <button 
-                onClick={() => setActiveLang('FR')}
-                className={`px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider transition-all ${
-                  activeLang === 'FR' ? 'bg-[#fba91e] text-slate-950 shadow-sm' : 'text-blue-200 hover:text-white'
-                }`}
-              >
-                FR
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
 
       {/* ⚪ MAIN NAVIGATION BAR (White Sticky Header) */}
       <nav className="bg-white/95 backdrop-blur-xl border-b border-slate-200" id="navbar">
