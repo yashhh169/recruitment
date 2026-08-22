@@ -62,7 +62,7 @@ export const LoginPage = () => {
               <Lock className="w-7 h-7" />
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-on-background tracking-tight">Welcome Back</h2>
-            <p className="font-body-md text-sm text-on-surface-variant mt-2">Sign in to your Gozonixa account</p>
+            <p className="font-body-md text-sm text-on-surface-variant mt-2">Sign in to your Talentraw account</p>
           </div>
 
           <div id="login-error-container" className={`${globalError ? '' : 'hidden'} mb-6 p-4 rounded-xl bg-error-container/60 border border-error/20 text-error flex items-start gap-3`}>

@@ -10,12 +10,12 @@ import {
 } from 'lucide-react';
 
 export const LandingPage = () => {
-  // Carousel State for "Why Gozonixa?"
+  // Carousel State for "Why Talentraw?"
   const [currentSlide, setCurrentSlide] = useState(0);
 
 
 
-  // Why Gozonixa Slide Items (Matching page_content exact data & images)
+  // Why Talentraw Slide Items (Matching page_content exact data & images)
   const whyItems = [
     {
       id: '01',
@@ -128,7 +128,7 @@ export const LandingPage = () => {
           <div className="lg:col-span-4 hidden lg:block">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-2xl text-white space-y-4">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <span className="font-bold text-sm text-[#fba91e] uppercase tracking-wider">Gozonixa Impact</span>
+                <span className="font-bold text-sm text-[#fba91e] uppercase tracking-wider">Talentraw Impact</span>
                 <span className="text-xs bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded">VERIFIED</span>
               </div>
               <div className="space-y-3 text-xs">
@@ -207,7 +207,7 @@ export const LandingPage = () => {
               <span className="text-[#fba91e]">Across Talent & Project Execution</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Gozonixa combines proprietary sourcing intelligence, rigorous technical evaluation, and agile project delivery to help global enterprises optimize workforce cost, accelerate timelines, and drive digital transformation.
+              Talentraw combines proprietary sourcing intelligence, rigorous technical evaluation, and agile project delivery to help global enterprises optimize workforce cost, accelerate timelines, and drive digital transformation.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
@@ -261,12 +261,12 @@ export const LandingPage = () => {
         </div>
       </section>
 
-      {/* 🔵 WHY GOZONIXA? CAROUSEL SECTION */}
+      {/* 🔵 WHY TALENTRAW? CAROUSEL SECTION */}
       <section className="py-16 bg-[#253e91] text-white">
         <div className="max-w-container-max mx-auto px-4 sm:px-8">
           
           <div className="text-center space-y-2 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Why Gozonixa?</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Why Talentraw?</h2>
             <div className="w-16 h-1 bg-[#fba91e] mx-auto rounded-full"></div>
             <p className="text-blue-200 text-xs sm:text-sm max-w-xl mx-auto">
               Empowering global organizations through industry-leading metrics, diversity accreditations, and proven service delivery.

@@ -1,9 +1,9 @@
 {
-  "name": "gozonixa-recruitment",
+  "name": "talentraw-recruitment",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Gozonixa - Elite Talent & Recruitment Platform",
+  "description": "Talentraw - Elite Talent & Recruitment Platform",
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",

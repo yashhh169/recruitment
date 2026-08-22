@@ -88,7 +88,7 @@ export const RegisterPage = () => {
               <UserPlus className="w-7 h-7" />
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-on-background tracking-tight">Create Account</h2>
-            <p className="font-body-md text-sm text-on-surface-variant mt-2">Join Gozonixa to unlock top opportunities</p>
+            <p className="font-body-md text-sm text-on-surface-variant mt-2">Join Talentraw to unlock top opportunities</p>
           </div>
 
           <div id="register-error-container" className={`${globalError ? '' : 'hidden'} mb-6 p-4 rounded-xl bg-error-container/60 border border-error/20 text-error flex items-start gap-3`}>

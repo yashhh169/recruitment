@@ -5,41 +5,23 @@ import {
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeLang, setActiveLang] = useState('EN');
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const navMenuItems = [
     {
       name: 'About Us',
-      href: '#about-us',
-      submenu: [
-        { name: 'Gozonixa Advantage', href: '#advantage' },
-        { name: 'Great Place to Work', href: '#work' },
-        { name: 'Certifications', href: '#certifications' },
-        { name: 'Awards & Recognitions', href: '#awards' }
-      ]
+      href: '#about-us'
     },
     {
       name: 'Our Solutions',
       href: '#our-solutions',
       submenu: [
-        { name: 'Contingent Staffing Solutions', href: '#contingent-staffing' },
-        { name: 'Project Staffing & MVP', href: '#project-staffing' },
-        { name: 'Recruitment Process Outsourcing (RPO)', href: '#rpo' },
+        { name: 'Contingent Staffing', href: '#contingent-staffing' },
+        { name: 'Contract & Project Staffing', href: '#contract-project-staffing' },
         { name: 'Direct Hire & Executive Search', href: '#direct-hire' },
-        { name: 'Payroll & Transition Services', href: '#payroll' },
-        { name: 'Managed Services & Project Delivery', href: '#managed-services' },
-        { name: 'Digital Experience & UI/UX', href: '#digital-exp' },
-        { name: 'Technical Operations & DevOps', href: '#tech-ops' },
-        { name: 'Diversity and Inclusion Programs', href: '#diversity' }
-      ]
-    },
-    {
-      name: 'Careers',
-      href: '#careers',
-      submenu: [
-        { name: 'Corporate Jobs', href: '#corporate-jobs' },
-        { name: 'Consultant Opportunities', href: '#consultant-jobs' }
+        { name: 'Recruitment Process Outsourcing (RPO)', href: '#rpo' },
+        { name: 'Candidate Screening & Assessment', href: '#candidate-screening' },
+        { name: 'Talent Training & Development', href: '#talent-training' }
       ]
     },
     {
@@ -55,7 +37,6 @@ export const Navbar = () => {
   return (
     <header className="fixed top-0 w-full z-50 transition-all duration-300 shadow-md">
       
-
       {/* ⚪ MAIN NAVIGATION BAR (White Sticky Header) */}
       <nav className="bg-white/95 backdrop-blur-xl border-b border-slate-200" id="navbar">
         <div className="flex justify-between items-center max-w-container-max mx-auto px-4 sm:px-8 py-3">
@@ -66,7 +47,7 @@ export const Navbar = () => {
               <Infinity className="w-6 h-6 text-[#fba91e]" />
             </div>
             <span className="font-display text-2xl font-black tracking-tight text-[#253e91]">
-              Gozon<span className="text-[#fba91e]">ixa</span>
+              Talent<span className="text-[#fba91e]">raw</span>
             </span>
           </a>
 
@@ -169,4 +150,3 @@ export const Navbar = () => {
     </header>
   );
 };
-

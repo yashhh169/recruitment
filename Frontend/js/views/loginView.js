@@ -16,7 +16,7 @@ export class LoginView {
                 <span class="material-symbols-outlined text-[28px]">lock</span>
               </div>
               <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-on-background tracking-tight">Welcome Back</h2>
-              <p class="font-body-md text-sm text-on-surface-variant mt-2">Sign in to your Gozonixa account</p>
+              <p class="font-body-md text-sm text-on-surface-variant mt-2">Sign in to your Talentraw account</p>
             </div>
 
             <!-- Global Error Alert Container -->

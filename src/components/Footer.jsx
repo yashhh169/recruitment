@@ -13,11 +13,11 @@ export const Footer = () => {
               <Infinity className="w-6 h-6 text-[#253e91]" />
             </div>
             <span className="font-display text-2xl font-black tracking-tight text-white">
-              Gozon<span className="text-[#fba91e]">ixa</span>
+              Talent<span className="text-[#fba91e]">raw</span>
             </span>
           </a>
           <p className="text-xs sm:text-sm text-blue-200 max-w-sm leading-relaxed">
-            Gozonixa is a global staffing, workforce, and IT solutions partner. We deliver contingent staffing, managed services, project delivery, and diversity programs to Fortune 500 enterprises.
+            Talentraw is a global staffing, workforce, and IT solutions partner. We deliver contingent staffing, managed services, project delivery, and diversity programs to Fortune 500 enterprises.
           </p>
           <div className="flex items-center gap-3 pt-2">
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-blue-900/60 hover:bg-[#fba91e] hover:text-slate-950 flex items-center justify-center transition-colors text-white">
@@ -56,8 +56,8 @@ export const Footer = () => {
             USA, Canada, India, China, Mexico, Philippines, Ireland, Poland, & Singapore.
           </p>
           <div className="pt-2 text-xs text-blue-100 space-y-1">
-            <p className="flex items-center justify-center md:justify-start gap-1.5"><Mail className="w-3.5 h-3.5 text-[#fba91e]" /> contact@gozonixa.com</p>
-            <p className="flex items-center justify-center md:justify-start gap-1.5"><Phone className="w-3.5 h-3.5 text-[#fba91e]" /> +1 (800) GOZONIXA</p>
+            <p className="flex items-center justify-center md:justify-start gap-1.5"><Mail className="w-3.5 h-3.5 text-[#fba91e]" /> contact@talentraw.com</p>
+            <p className="flex items-center justify-center md:justify-start gap-1.5"><Phone className="w-3.5 h-3.5 text-[#fba91e]" /> +1 (800) TALENTRAW</p>
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export const Footer = () => {
       {/* Bottom Legal Bar */}
       <div className="border-t border-blue-900/80 py-6 text-center text-xs text-blue-300">
         <div className="max-w-container-max mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>© 2026 GOZONIXA LLC. ALL RIGHTS RESERVED.</div>
+          <div>© 2026 TALENTRAW LLC. ALL RIGHTS RESERVED.</div>
           <div className="flex gap-6 text-blue-200">
             <a href="#privacy" className="hover:text-white hover:underline">PRIVACY POLICY</a>
             <a href="#terms" className="hover:text-white hover:underline">TERMS OF USE</a>

@@ -5,8 +5,8 @@
  * Future Supabase migration only requires providing SupabaseAuthAdapter here.
  */
 
-const USERS_KEY = 'gozonixa_mock_users';
-const SESSION_KEY = 'gozonixa_mock_session';
+const USERS_KEY = 'talentraw_mock_users';
+const SESSION_KEY = 'talentraw_mock_session';
 
 class MockAuthAdapter {
   constructor() {
@@ -19,7 +19,7 @@ class MockAuthAdapter {
         {
           id: 'usr_demo_1',
           name: 'Demo User',
-          email: 'demo@gozonixa.com',
+          email: 'demo@talentraw.com',
           password: 'password123',
           createdAt: new Date().toISOString()
         }
