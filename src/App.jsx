@@ -4,6 +4,8 @@ import { AuthProvider } from './context/AuthContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { LandingPage } from './pages/LandingPage';
+import { ContingentStaffingPage } from './pages/ContingentStaffingPage';
+import { ContractProjectStaffingPage } from './pages/ContractProjectStaffingPage';
 
 export const AppContent = () => {
   return (
@@ -12,6 +14,8 @@ export const AppContent = () => {
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/contingent-staffing" element={<ContingentStaffingPage />} />
+          <Route path="/contract-project-staffing" element={<ContractProjectStaffingPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

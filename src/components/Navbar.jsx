@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Infinity, Menu, X, ChevronDown 
 } from 'lucide-react';
@@ -10,27 +11,27 @@ export const Navbar = () => {
   const navMenuItems = [
     {
       name: 'About Us',
-      href: '#about-us'
+      href: '/#about-us'
     },
     {
       name: 'Our Solutions',
-      href: '#our-solutions',
+      href: '/#our-solutions',
       submenu: [
-        { name: 'Contingent Staffing', href: '#contingent-staffing' },
-        { name: 'Contract & Project Staffing', href: '#contract-project-staffing' },
-        { name: 'Direct Hire & Executive Search', href: '#direct-hire' },
-        { name: 'Recruitment Process Outsourcing (RPO)', href: '#rpo' },
-        { name: 'Candidate Screening & Assessment', href: '#candidate-screening' },
-        { name: 'Talent Training & Development', href: '#talent-training' }
+        { name: 'Contingent Staffing', href: '/contingent-staffing' },
+        { name: 'Contract & Project Staffing', href: '/contract-project-staffing' },
+        { name: 'Direct Hire & Executive Search', href: '/#direct-hire' },
+        { name: 'Recruitment Process Outsourcing (RPO)', href: '/#rpo' },
+        { name: 'Candidate Screening & Assessment', href: '/#candidate-screening' },
+        { name: 'Talent Training & Development', href: '/#talent-training' }
       ]
     },
     {
       name: 'Community First',
-      href: '#community'
+      href: '/#community'
     },
     {
       name: 'Contact Us',
-      href: '#contact-us'
+      href: '/#contact-us'
     }
   ];
 
@@ -42,14 +43,14 @@ export const Navbar = () => {
         <div className="flex justify-between items-center max-w-container-max mx-auto px-4 sm:px-8 py-3">
           
           {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
+          <Link to="/" className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 rounded-xl bg-[#253e91] flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform duration-300">
               <Infinity className="w-6 h-6 text-[#fba91e]" />
             </div>
             <span className="font-display text-2xl font-black tracking-tight text-[#253e91]">
               Talent<span className="text-[#fba91e]">raw</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-700">
@@ -71,15 +72,27 @@ export const Navbar = () => {
                 {/* Submenu Dropdown */}
                 {item.submenu && activeDropdown === idx && (
                   <div className="absolute top-full left-0 w-64 bg-white border border-slate-200 rounded-xl shadow-xl py-2 mt-1 animate-in fade-in slide-in-from-top-2 duration-200">
-                    {item.submenu.map((sub, sIdx) => (
-                      <a 
-                        key={sIdx}
-                        href={sub.href}
-                        className="block px-4 py-2 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#253e91] transition-colors"
-                      >
-                        {sub.name}
-                      </a>
-                    ))}
+                    {item.submenu.map((sub, sIdx) => 
+                      sub.href.startsWith('/') && !sub.href.includes('#') ? (
+                        <Link 
+                          key={sIdx}
+                          to={sub.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="block px-4 py-2 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#253e91] transition-colors"
+                        >
+                          {sub.name}
+                        </Link>
+                      ) : (
+                        <a 
+                          key={sIdx}
+                          href={sub.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="block px-4 py-2 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#253e91] transition-colors"
+                        >
+                          {sub.name}
+                        </a>
+                      )
+                    )}
                   </div>
                 )}
               </div>
@@ -88,7 +101,7 @@ export const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="#our-solutions" className="text-xs font-bold bg-[#253e91] hover:bg-blue-900 text-white px-5 py-2 rounded-lg shadow-sm hover:shadow transition-all border border-blue-900">
+            <a href="/#our-solutions" className="text-xs font-bold bg-[#253e91] hover:bg-blue-900 text-white px-5 py-2 rounded-lg shadow-sm hover:shadow transition-all border border-blue-900">
               GET STARTED
             </a>
           </div>
@@ -118,16 +131,27 @@ export const Navbar = () => {
                   </a>
                   {item.submenu && (
                     <div className="pl-4 space-y-1 border-l-2 border-slate-200">
-                      {item.submenu.map((sub, sIdx) => (
-                        <a
-                          key={sIdx}
-                          href={sub.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block text-slate-600 hover:text-[#253e91] py-1 text-[11px] normal-case"
-                        >
-                          {sub.name}
-                        </a>
-                      ))}
+                      {item.submenu.map((sub, sIdx) => 
+                        sub.href.startsWith('/') && !sub.href.includes('#') ? (
+                          <Link
+                            key={sIdx}
+                            to={sub.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block text-slate-600 hover:text-[#253e91] py-1 text-[11px] normal-case"
+                          >
+                            {sub.name}
+                          </Link>
+                        ) : (
+                          <a
+                            key={sIdx}
+                            href={sub.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block text-slate-600 hover:text-[#253e91] py-1 text-[11px] normal-case"
+                          >
+                            {sub.name}
+                          </a>
+                        )
+                      )}
                     </div>
                   )}
                 </div>
@@ -136,7 +160,7 @@ export const Navbar = () => {
 
             <div className="pt-3 border-t border-slate-200">
               <a 
-                href="#our-solutions" 
+                href="/#our-solutions" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="block text-center bg-[#253e91] text-white py-2.5 rounded-lg font-bold text-xs"
               >
